@@ -171,7 +171,7 @@ class ObjectField<
   getDefaultValue(type?: RJSFSchema["type"]) {
     switch (type) {
       case "string":
-        return "New Value";
+        return "";
       case "array":
         return [];
       case "boolean":
@@ -184,7 +184,7 @@ class ObjectField<
         return {};
       default:
         // We don't have a datatype for some reason (perhaps additionalProperties was true)
-        return "New Value";
+        return  "";
     }
   }
 
@@ -213,7 +213,7 @@ class ObjectField<
       }
     }
 
-    const newKey = this.getAvailableKey("newKey", newFormData);
+    const newKey = this.getAvailableKey("", newFormData);
     // Cast this to make the `set` work properly
     set(newFormData as GenericObjectType, newKey, this.getDefaultValue(type));
 
